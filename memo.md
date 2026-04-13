@@ -1,7 +1,7 @@
 # Non-Safety Opportunity Analysis: Voxel Customer Calls
 **To:** Voxel Product & GTM  
-**From:** Candidate submission  
-**Date:** April 2026  
+**From:** Aditya Shetty (aashetty@andrew.cmu.edu)
+**Date:** 12th April 2026  
 **Dataset:** 99 anonymized call JSONs, 471 safety UCs, 231 non-safety UCs
 
 ---
@@ -10,7 +10,7 @@
 
 Three non-safety themes surface repeatedly across the call corpus with real customer urgency:
 **operational efficiency**, **security and access control**, and **loss prevention/shrink**.
-The extraction pipeline has meaningful quality problems — roughly 12% of non-safety labels
+The extraction pipeline has meaningful quality problems roughly 12% of non-safety labels
 are duplicates of safety labels, and ~6% are admin or commercial items, not product use cases.
 Neither finding invalidates the signal, but both require cleaning before any prioritization
 work should be taken at face value.
@@ -34,7 +34,7 @@ breaks down as follows:
 | Energy & Facility Mgmt | 4 | — |
 
 "Operational Efficiency" and "Analytics/Reporting" are large partly because the pipeline
-over-captures anything mentioning workflows, actions, or heatmaps — tools that also
+over-captures anything mentioning workflows, actions, or heatmaps tools that also
 appear in the safety bucket. That said, there is genuine signal inside both.
 
 ---
@@ -49,8 +49,8 @@ catches near-misses can answer: How long is a dock door sitting open? Are forkli
 in aisles and killing flow? Is there a conveyor backlog building at shift change?
 
 Representative customer quotes:
-- *"Trailer detention time and turnaround time — from the time we get an inbound load to
-  when our last truck leaves — that's 12 to 13 hours. Is there a way to see that?"*
+- *"Trailer detention time and turnaround time- from the time we get an inbound load to
+  when our last truck leaves, that's 12 to 13 hours. Is there a way to see that?"*
   (Grit Stack Operations)
 - *"Why are we moving around the entire bay when what he's going after is a moderate distance
   away? We've got some efficiency gains hiding here."* (Mason Line Supply)
@@ -66,18 +66,18 @@ throughput data. The detection work is largely already done.
 ### 2. Security & Access Control (19 calls, unprompted in almost every case)
 
 Customers independently raise access control and after-hours monitoring without being
-prompted. This comes up across verticals — warehouses, retail, manufacturing, and port
+prompted. This comes up across verticals warehouses, retail, manufacturing, and port
 facilities. The specific asks cluster around: time-based no-pedestrian zones (employees
-who shouldn't be in a zone after lights-out), perimeter breach detection, and — more
-controversially — facial recognition for incident investigation.
+who shouldn't be in a zone after lights-out), perimeter breach detection, and more
+controversially facial recognition for incident investigation.
 
 Representative quotes:
-- *"There's times super late at night — nobody should be back there. Could you flip
+- *"There's times super late at night nobody should be back there. Could you flip
   on an alert if someone is?"* (Kodiak Point Fabrication)
 - *"Their special project is building out use cases slanted more to the security side
   of the house."* (Mason Line Supply)
-- *"You have an employee who's no longer with the company — we can do recognition for
-  that."* (Pioneer Peak Manufacturing — Voxel rep describing capability)
+- *"You have an employee who's no longer with the company we can do recognition for
+  that."* (Pioneer Peak Manufacturing Voxel rep describing capability)
 
 **Why it matters:** Security is already a stated use case in several contracts.
 The opportunity is to formalize it as a distinct product tier or add-on rather than
@@ -100,13 +100,13 @@ Representative quotes:
   the PIT. That's all money."* (Trail Lift Works)
 - *"They had to replace the door three different times — cost them up to [REDACTED]."*
   (Mesa Span Solutions)
-- *"That product could have fell off — that could have been a loss for us. We can now
+- *"That product could have fell off that could have been a loss for us. We can now
   show that on camera."* (Orion Forge Industrial)
 
 **Why it matters:** LP is a natural expansion buyer who can be sold on existing
 detection (PIT monitoring, zone monitoring) reframed around financial loss rather than
 injury rate. The evidence is thin relative to the other two themes, which is partly a
-data artifact — LP buyers may not be on the training and onboarding calls captured here.
+data artifact LP buyers may not be on the training and onboarding calls captured here.
 
 ---
 
@@ -126,7 +126,7 @@ expression of need. These items should be flagged, not discarded, but they carry
 substantially less weight than items with two or more independent quotes.
 
 **3. Admin and commercial items.** Eight items in the non-safety bucket are about
-contract renewals, scheduling, vendor evaluations, and stakeholder alignment — not
+contract renewals, scheduling, vendor evaluations, and stakeholder alignment not
 product use cases at all. Examples: "Contract renewal language clarification" and
 "Longer-term commercial options" (Summit Span Solutions). These inflate counts and
 dilute focus.
@@ -156,6 +156,6 @@ deduplication or bucket-consistency check. A lightweight fix:
 
 This is roughly a day of engineering work. On this corpus it would surface and
 resolve most of the 28 cross-bucket duplicates and the 8 admin items automatically.
-It would not fix the underlying LLM tendency to over-classify — that requires
-prompt-side work — but it meaningfully improves output trustworthiness before
+It would not fix the underlying LLM tendency to over-classify that requires
+prompt-side work but it meaningfully improves output trustworthiness before
 that work is done.
